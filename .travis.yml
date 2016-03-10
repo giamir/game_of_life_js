@@ -10,7 +10,3 @@ before_install:
 
 install:
   - npm install
-  - npm install coveralls
-
-after_success:
-  - coveralls
