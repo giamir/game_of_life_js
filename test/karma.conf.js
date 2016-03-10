@@ -8,7 +8,7 @@ module.exports = function(config) {
     ],
     exclude: [],
     preprocessors: {
-      'js/**/*.js': ['coverage']
+      'public/js/**/*.js': ['coverage']
     },
     reporters: ['spec', 'coverage'],
     port: 9876,
