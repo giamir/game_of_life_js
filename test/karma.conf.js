@@ -8,9 +8,9 @@ module.exports = function(config) {
     ],
     exclude: [],
     preprocessors: {
-      'public/js/**/*.js': ['coverage', 'coveralls']
+      'public/js/**/*.js': ['coverage']
     },
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec', 'coverage', 'coveralls'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
