@@ -1,5 +1,5 @@
-function Board() {
-  this.cellKlass = Cell;
+function Board(cellKlass) {
+  this.cellKlass = cellKlass;
   this.cells = [];
 }
 

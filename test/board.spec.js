@@ -2,7 +2,10 @@ describe('Board', function() {
   var board;
 
   beforeEach(function() {
-    board = new Board();
+    var cellKlassMock = function() {
+      this.new = jasmine.createSpy('cellKlassMock#new');
+    };
+    board = new Board(cellKlassMock);
   });
 
   describe('#set', function() {
