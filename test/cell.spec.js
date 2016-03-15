@@ -23,5 +23,18 @@ describe('Cell', function() {
     });
   });
 
+  describe('#setAlive', function() {
+    it('sets the cell status to alive', function() {
+      cell.setAlive();
+      expect(cell.isAlive()).toBe(true);
+    });
+  });
+
+  describe('#setDead', function() {
+    it('sets the cell status to dead', function() {
+      cell.setDead();
+      expect(cell.isAlive()).toBe(false);
+    });
+  });
 
 });
