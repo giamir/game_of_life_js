@@ -1,9 +1,16 @@
 function Neighbourhood(cells, centerCell) {
   this.cells = cells;
   this.centerCell = centerCell;
+  this.livingNeighbours = this.countLivingNeighbours();
 }
 
-Neighbourhood.prototype.around = function() {
+Neighbourhood.prototype.countLivingNeighbours = function() {
+  return this.getNeighbours().reduce(function(acc, cell){
+    return cell.isAlive() ? acc + 1 : acc;
+  }, 0);
+}
+
+Neighbourhood.prototype.getNeighbours = function() {
   return this.cells.filter(this._findNeighboursFilter, this);
 }
 
