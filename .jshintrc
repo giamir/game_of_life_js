@@ -89,5 +89,5 @@
     "yui"           : false,    // Yahoo User Interface
 
     // Custom Globals
-    "globals"       : {"LifeBoard": true, "Cell": true, "Board": true}        // additional predefined global variables
+    "globals"       : {"LifeBoard": true, "Cell": true, "Board": true, "Neighbourhood": true}        // additional predefined global variables
 }
