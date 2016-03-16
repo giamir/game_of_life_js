@@ -1,8 +1,11 @@
 describe('Cell', function() {
   var cell;
+  var neighbourhoodKlassMock;
 
   beforeEach(function() {
+    neighbourhoodKlassMock = jasmine.createSpy('neighbourhoodKlassMock');
     cell = new Cell();
+    cell.neighbourhoodKlass = neighbourhoodKlassMock;
   });
 
   describe('#initialize', function() {
@@ -34,6 +37,13 @@ describe('Cell', function() {
     it('sets the cell status to dead', function() {
       cell.setDead();
       expect(cell.isAlive()).toBe(false);
+    });
+  });
+
+  describe('#setNeighbourhood', function() {
+    it('sets the neigbourhood for the cell', function() {
+      cell.setNeighbourhood();
+      expect(neighbourhoodKlassMock).toHaveBeenCalled();
     });
   });
 

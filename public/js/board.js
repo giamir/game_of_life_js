@@ -1,5 +1,5 @@
-function Board(cellKlass) {
-  this.cellKlass = cellKlass;
+function Board() {
+  this.cellKlass = Cell;
   this.cells = [];
 }
 
@@ -10,6 +10,7 @@ Board.prototype.set = function() {
       this.cells.push(cell);
     }
   }
+  this.cells.map(function(cell) { cell.setNeighbourhood(this.cells); }, this);
 }
 
 Board.prototype.defaults = {
