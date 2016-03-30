@@ -10,11 +10,11 @@ describe('Neighbourhood', function() {
 
     neighbourCellMock = jasmine.createSpyObj('cell', ['isAlive']);
     neighbourCellMock.x = 1; neighbourCellMock.y = 1;
-    neighbourCellMock.isAlive.and.callFake(function() { return true; });
+    neighbourCellMock.isAlive.and.returnValue(true);
 
     noNeighbourCellMock = jasmine.createSpyObj('cell', ['isAlive']);
     noNeighbourCellMock.x = 2; noNeighbourCellMock.y = 0;
-    noNeighbourCellMock.isAlive.and.callFake(function() { return false; });
+    noNeighbourCellMock.isAlive.and.returnValue(false);
 
     var cellsMock = [centerCellMock, neighbourCellMock, noNeighbourCellMock];
     neighbourhood = new Neighbourhood(cellsMock, centerCellMock);
@@ -45,23 +45,53 @@ describe('Neighbourhood', function() {
   });
 
   describe('#isOverpopulated', function() {
-    it('returns true if the living cells in the neighbourhood are more than 3',
+    describe('when the living cells in the neighbourhood are more than 3',
     function() {
-      expect(neighbourhood.isOverpopulated()).toBe(false);
+      it('returns true', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(4);
+        expect(neighbourhood.isOverpopulated()).toBe(true);
+      });
+    });
+    describe('otherwise',
+    function() {
+      it('returns false', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(3);
+        expect(neighbourhood.isOverpopulated()).toBe(false);
+      });
     });
   });
 
   describe('#isUnderpopulated', function() {
-    it('returns true if the living cells in the neighbourhood are less than 2',
+    describe('when the living cells in the neighbourhood are less than 2',
     function() {
-      expect(neighbourhood.isUnderpopulated()).toBe(true);
+      it('returns true', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(1);
+        expect(neighbourhood.isUnderpopulated()).toBe(true);
+      });
+    });
+    describe('otherwise',
+    function() {
+      it('returns false', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(2);
+        expect(neighbourhood.isUnderpopulated()).toBe(false);
+      });
     });
   });
 
   describe('#isFittedForReproduction', function() {
-    it('returns true if the living cells in the neighbourhood are exactly 3',
+    describe('when the living cells in the neighbourhood are exactly 3',
     function() {
-      expect(neighbourhood.isFittedForReproduction()).toBe(false);
+      it('returns true', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(3);
+        expect(neighbourhood.isFittedForReproduction()).toBe(true);
+      });
+    });
+    describe('otherwise',
+    function() {
+      it('returns false', function() {
+        spyOn(neighbourhood, 'countLivingNeighbours').and.returnValue(2);
+        expect(neighbourhood.isFittedForReproduction()).toBe(false);
+      });
     });
   });
 

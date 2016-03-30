@@ -1,6 +1,6 @@
 # Game of Life [![Build Status](https://travis-ci.org/giamir/game_of_life_js.svg?branch=master)](https://travis-ci.org/giamir/game_of_life_js) [![Coverage Status](https://coveralls.io/repos/github/giamir/game_of_life_js/badge.svg?branch=master)](https://coveralls.io/github/giamir/game_of_life_js?branch=master)
 
-A basic implementation of Conway's game of life in JavaScript built with a TDD approach.
+My personal implementation of Conway's game of life in JavaScript built following a TDD approach.
 
 ## Rules
 
