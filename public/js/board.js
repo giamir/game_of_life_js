@@ -13,6 +13,11 @@ Board.prototype.set = function() {
   this.cells.map(function(cell) { cell.setNeighbourhood(this.cells); }, this);
 }
 
+Board.prototype.tick = function() {
+  // aggiornare il vicinato di tutte le celle
+  // aggiornare ogni singola cella alla new generation
+}
+
 Board.prototype.defaults = {
   x: 3,
   y: 3

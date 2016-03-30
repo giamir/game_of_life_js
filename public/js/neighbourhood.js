@@ -21,3 +21,15 @@ Neighbourhood.prototype._findNeighboursFilter = function(cell) {
          cell.y >= this.centerCell.y - 1 &&
          cell.y <= this.centerCell.y + 1;
 }
+
+Neighbourhood.prototype.isOverpopulated = function() {
+  return this.livingNeighbours > 3;
+}
+
+Neighbourhood.prototype.isUnderpopulated = function() {
+  return this.livingNeighbours < 2;
+}
+
+Neighbourhood.prototype.isFittedForReproduction = function() {
+  return this.livingNeighbours === 3;
+}

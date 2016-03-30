@@ -44,4 +44,25 @@ describe('Neighbourhood', function() {
     });
   });
 
+  describe('#isOverpopulated', function() {
+    it('returns true if the living cells in the neighbourhood are more than 3',
+    function() {
+      expect(neighbourhood.isOverpopulated()).toBe(false);
+    });
+  });
+
+  describe('#isUnderpopulated', function() {
+    it('returns true if the living cells in the neighbourhood are less than 2',
+    function() {
+      expect(neighbourhood.isUnderpopulated()).toBe(true);
+    });
+  });
+
+  describe('#isFittedForReproduction', function() {
+    it('returns true if the living cells in the neighbourhood are exactly 3',
+    function() {
+      expect(neighbourhood.isFittedForReproduction()).toBe(false);
+    });
+  });
+
 });
